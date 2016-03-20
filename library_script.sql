@@ -41,7 +41,8 @@ ENGINE = InnoDB;
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `library`.`author` (
   `id` INT NOT NULL AUTO_INCREMENT,
-  `author_name` VARCHAR(45) NOT NULL,
+  `first_name` VARCHAR(45) NOT NULL,
+  `second_name` VARCHAR(45) NOT NULL,
   `sub_author_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_author_sub_author1_idx` (`sub_author_id` ASC),
@@ -64,7 +65,7 @@ CREATE TABLE IF NOT EXISTS `library`.`book` (
   `description` VARCHAR(75) NOT NULL,
   `genre_id` INT NOT NULL,
   `publishing_id` INT NOT NULL,
-  `author_id` INT NOT NULL,
+  `author_id` INT,
   PRIMARY KEY (`id`),
   INDEX `fk_book_publishing1_idx` (`publishing_id` ASC),
   INDEX `fk_book_author1_idx` (`author_id` ASC),
