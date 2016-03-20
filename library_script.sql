@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `library`.`author` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `first_name` VARCHAR(45) NOT NULL,
   `second_name` VARCHAR(45) NOT NULL,
-  `sub_author_id` INT NOT NULL,
+  `sub_author_id` INT,
   PRIMARY KEY (`id`),
   INDEX `fk_author_sub_author1_idx` (`sub_author_id` ASC),
   CONSTRAINT `fk_author_sub_author1`
@@ -159,7 +159,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `library`.`book_instance` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `inventory_number` INT NOT NULL,
-  `in_stock` TINYINT(1) NOT NULL,
+  `in_stock` BOOLEAN NOT NULL,
   `reader_id` INT NOT NULL,
   `book_id` INT NOT NULL,
   PRIMARY KEY (`id`),
